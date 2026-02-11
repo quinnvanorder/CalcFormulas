@@ -1,0 +1,330 @@
+"Author: Quinn Van Order"
+"Version 2.3"
+"02.11.26"
+
+"--- SETUP SECTION ---"
+"Store current graph database to restore later"
+StoreGDB 9
+AxesOff
+GridOff
+BackgroundOff
+FnOff 
+PlotsOff 
+
+"--- MAIN MENU ---"
+Lbl S
+ClrHome
+ClrDraw
+Menu("CALCULUS FORMULAS","DERIVATIVES",M,"INTEGRALS",W,"QUIT",Q)
+
+"--- INTEGRATION PLACEHOLDER ---"
+Lbl W
+ClrHome
+ClrDraw
+Text(50,50,"INTEGRATION")
+Text(70,40,"COMING SOON...")
+Text(130,40,"PRESS ANY KEY")
+Pause 
+Goto S
+
+"--- DERIVATIVES PAGE 1 ---"
+Lbl M
+ClrHome
+ClrDraw
+Menu("Derivatives 1","Constant Rule",A,"Constant Multiple Rule",B,"Power Rule",C,"Sum/Difference Rule",D,"Product Rule",E,"Quotient Rule",F,"Chain Rule",H,"NEXT",N,"MAIN",S)
+
+"--- DERIVATIVES PAGE 2 ---"
+Lbl N
+ClrHome
+ClrDraw
+Menu("Derivatives 2","Exponential",J,"Logarithmic",K,"Trig",I,"Inverse Trig 1",L,"Inverse Trig 2",O,"Point",P," ",N,"PREV",M,"MAIN",S)
+
+"--- RULE: CONSTANT ---"
+Lbl A
+ClrDraw
+Text(10,10,"Constant Rule")
+Text(40,10,"f(x) = c")
+Text(70,10,"f'(x) = 0")
+Goto Z
+
+"--- RULE: CONSTANT MULTIPLE ---"
+Lbl B
+ClrDraw
+Text(10,10,"Constant Multiple Rule")
+Text(40,10,"g(x) = c*f(x)")
+Text(70,10,"g'(x) = c*f'(x)")
+Goto Z
+
+"--- RULE: POWER ---"
+Lbl C
+ClrDraw
+Text(10,10,"Power Rule")
+Text(40,10,"f(x) = x")
+Text(32,60,"n")
+Text(70,10,"f'(x) = nx")
+Text(62,70,"n-1")
+Goto Z
+
+"--- RULE: SUM AND DIFF ---"
+Lbl D
+ClrDraw
+Text(10,10,"Sum/Difference Rule")
+Text(40,10,"h(x) = f(x)+g(x)")
+Text(70,10,"h'(x) = f'(x)+g'(x)")
+Text(100,10,"NOTE: plus or minus")
+Goto Z
+
+"--- RULE: PRODUCT ---"
+Lbl E
+ClrDraw
+Text(10,10,"Product Rule")
+Text(40,10,"h(x) = f(x)g(x)")
+Text(70,10,"h'(x) = f'(x)g(x)+f(x)g'(x)")
+Goto Z
+
+"--- RULE: QUOTIENT ---"
+Lbl F
+ClrDraw
+Text(10,10,"Quotient Rule")
+Text(40,10,"h(x) = f(x)/g(x)")
+Text(80,10,"h'(x) =")
+Text(65,65,"f'(x)g(x)-f(x)g'(x)")
+Text(95,95,"(g(x))")
+Text(87,135,"2")
+"Draw division bar"
+For(X,63,200)
+Pxl-On(83,X)
+End
+Goto Z
+
+"--- RULE: CHAIN ---"
+Lbl H
+ClrDraw
+Text(10,10,"Chain Rule")
+Text(40,10,"h(x) = f(g(x))")
+Text(70,10,"h'(x) = f'(g(x))*g'(x)")
+Goto Z
+
+"--- RULE: EXPONENTIAL ---"
+Lbl J
+ClrDraw
+Text(10,10,"Exponential")
+Text(35,10,"f(x) = a")
+Text(28,60,"x")
+Text(35,100,"f'(x) = ln(a)a")
+Text(28,190,"x")
+Text(60,10,"f(x) = e")
+Text(53,60,"x")
+Text(60,100,"f'(x) = e")
+Text(53,155,"x")
+Text(90,10,"f(x) = a")
+Text(83,60,"g(x)")
+Text(90,100,"f'(x) = ln(a)a")
+Text(83,190,"g(x)")
+Text(90,220,"g'(x)")
+Text(120,10,"f(x) = e")
+Text(113,60,"g(x)")
+Text(120,100,"f'(x) = e")
+Text(113,150,"g(x)")
+Text(120,180,"g'(x)")
+Goto Y
+
+"--- RULE: LOGARITHM ---"
+Lbl K
+ClrDraw
+Text(5,10,"Logarithmic")
+Text(30,10,"f(x) = log")
+Text(35,73,"a")
+Text(30,83,"(x)")
+Text(30,135,"f'(x) =")
+Text(20,200,"1")
+"Draw division bar"
+For(X,185,225)
+Pxl-On(33,X)
+End
+Text(36,185,"ln(a)x")
+Text(65,10,"f(x) = ln(x)")
+Text(65,135,"f'(x) =")
+Text(55,190,"1")
+"Draw division bar"
+For(X,185,205)
+Pxl-On(68,X)
+End
+Text(71,190,"x")
+Text(100,10,"f(x) = log")
+Text(105,73,"a")
+Text(100,83,"(g(x))")
+Text(100,135,"f'(x) =")
+Text(90,195,"g'(x)")
+"Draw division bar"
+For(X,180,240)
+Pxl-On(103,X)
+End
+Text(106,180,"ln(a)g(x)")
+Text(135,10,"f(x) = ln(g(x))")
+Text(135,135,"f'(x) =")
+Text(125,190,"g'(x)")
+"Draw division bar"
+For(X,185,225)
+Pxl-On(138,X)
+End
+Text(141,190,"g(x)")
+Goto Y
+
+"--- RULE: TRIGONOMETRY ---"
+Lbl I
+ClrDraw
+Text(10,10,"Trig")
+Text(35,10,"sin(x) = cos(x)")
+Text(55,10,"cos(x) = -sin(x)")
+Text(75,10,"tan(x) = sec")
+Text(68,93,"2")
+Text(75,102,"(x)")
+Text(95,10,"csc(x) = -csc(x)cot(x)")
+Text(115,10,"sec(x) = sec(x)tan(x)")
+Text(135,10,"cot(x) = -csc")
+Text(128,100,"2")
+Text(135,108,"(x)")
+Goto Y
+
+"--- RULE: INVERSE TRIG 1 ---"
+Lbl L
+ClrDraw
+Text(5,10,"Inverse Trig 1")
+
+"--- ARCSIN ---"
+Text(35,10,"sin")
+Text(30,28,"-1")
+Text(35,44,"(x)")
+Text(35,115,"=")
+Text(25,165,"1")
+"Draw division bar"
+For(X,150,205)
+Pxl-On(38,X)
+End
+Text(42,150,"√(1-x")
+Text(38,190,"2")
+Text(42,197,")")
+
+"--- ARCCOS ---"
+Text(80,10,"cos")
+Text(75,32,"-1")
+Text(80,48,"(x)")
+Text(80,115,"=")
+Text(70,160,"-1")
+"Draw division bar"
+For(X,150,205)
+Pxl-On(83,X)
+End
+Text(87,150,"√(1-x")
+Text(83,190,"2")
+Text(87,197,")")
+
+"--- ARCTAN ---"
+Text(125,10,"tan")
+Text(120,34,"-1")
+Text(125,50,"(x)")
+Text(125,115,"=")
+Text(115,165,"1")
+"Draw division bar"
+For(X,150,180)
+Pxl-On(128,X)
+End
+Text(132,150,"1+x")
+Text(128,175,"2")
+Goto Y
+
+"--- RULE: INVERSE TRIG 2 ---"
+Lbl O
+ClrDraw
+Text(5,10,"Inverse Trig 2")
+
+"--- ARCCOT ---"
+Text(35,10,"cot")
+Text(30,34,"-1")
+Text(35,50,"(x)")
+Text(35,115,"=")
+Text(25,160,"-1")
+"Draw division bar"
+For(X,150,180)
+Pxl-On(38,X)
+End
+Text(42,150,"1+x")
+Text(38,175,"2")
+
+"--- ARCSEC ---"
+Text(80,10,"sec")
+Text(75,34,"-1")
+Text(80,50,"(x)")
+Text(80,115,"=")
+Text(70,170,"1")
+"Draw division bar"
+For(X,150,220)
+Pxl-On(83,X)
+End
+Text(87,150,"x√(x")
+Text(83,183,"2")
+Text(87,190,"-1)")
+
+"--- ARCCSC ---"
+Text(125,10,"csc")
+Text(120,34,"-1")
+Text(125,50,"(x)")
+Text(125,115,"=")
+Text(115,165,"-1")
+"Draw division bar"
+For(X,150,220)
+Pxl-On(128,X)
+End
+Text(132,150,"x√(x")
+Text(128,183,"2")
+Text(132,190,"-1)")
+Goto Y
+
+"--- RULE: POINT DEFINITION ---"
+Lbl P
+ClrDraw
+Text(10,10,"Point Definitions")
+
+"--- DERIVATIVE DEF ---"
+Text(40,10,"f'(x) = lim")
+Text(55,55,"h->0")  
+Text(35,90,"f(x+h)-f(x)") 
+"Draw division bar"
+For(X,90,170)
+Pxl-On(51,X)
+End
+Text(55,110,"h")          
+
+"--- SLOPE AT POINT ---"
+Text(90,10,"m = lim")
+Text(105,35,"x->a") 
+"Draw division bar"
+For(X,90,160)
+Pxl-On(100,X)
+End
+Text(85,90,"f(x)-f(a)") 
+Text(100,110,"x-a")      
+Goto Y
+
+"--- RETURN TO PAGE 1 ---"
+Lbl Z
+While getKey=0
+End
+ClrDraw
+Goto M
+
+"--- RETURN TO PAGE 2 ---"
+Lbl Y
+While getKey=0
+End
+ClrDraw
+Goto N
+
+"--- QUIT ---"
+Lbl Q
+ClrDraw
+ClrHome
+"Restore the graph database"
+RecallGDB 9
+Stop
