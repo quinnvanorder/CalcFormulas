@@ -288,23 +288,23 @@ Text(10,10,"Point Definitions")
 
 "--- DERIVATIVE DEF ---"
 Text(40,10,"f'(x) = lim")
-Text(55,55,"h->0")  
-Text(35,90,"f(x+h)-f(x)") 
+Text(55,56,"h->0")  
+Text(40,110,"f(x+h)-f(x)") 
 "Draw division bar"
-For(X,90,170)
-Pxl-On(51,X)
+For(X,110,190)
+Pxl-On(56,X)
 End
-Text(55,110,"h")          
+Text(56,130,"h")          
 
 "--- SLOPE AT POINT ---"
-Text(90,10,"m = lim")
-Text(105,35,"x->a") 
+Text(90,31,"m = lim")
+Text(106,56,"x->a") 
 "Draw division bar"
-For(X,90,160)
-Pxl-On(100,X)
+For(X,110,180)
+Pxl-On(106,X)
 End
-Text(85,90,"f(x)-f(a)") 
-Text(100,110,"x-a")      
+Text(90,110,"f(x)-f(a)") 
+Text(106,130,"x-a")      
 Goto Y
 
 "--- RETURN TO PAGE 1 ---"
