@@ -287,24 +287,39 @@ ClrDraw
 Text(10,10,"Point Definitions")
 
 "--- DERIVATIVE DEF ---"
-Text(40,10,"f'(x) = lim")
-Text(55,56,"h->0")  
-Text(40,110,"f(x+h)-f(x)") 
-"Draw division bar"
+"Kept fixed at original Y=30 position"
+Text(30,10,"f'(x) = lim")
+Text(45,56,"h->0") 
+Text(30,110,"f(x+h)-f(x)") 
+
+"Draw division bar at Y=46"
 For(X,110,190)
-Pxl-On(56,X)
+Pxl-On(46,X)
 End
-Text(56,130,"h")          
+Text(46,130,"h") 
 
 "--- SLOPE AT POINT ---"
-Text(90,31,"m = lim")
-Text(106,56,"x->a") 
-"Draw division bar"
+"Shifted down from Y=70 to Y=85 to use dead space"
+Text(85,31,"m = lim")
+Text(101,56,"x->a") 
+Text(85,110,"f(x)-f(a)") 
+
+"Draw division bar moved to Y=101"
 For(X,110,180)
-Pxl-On(106,X)
+Pxl-On(101,X)
 End
-Text(90,110,"f(x)-f(a)") 
-Text(106,130,"x-a")      
+Text(101,130,"x-a") 
+
+"--- POINT SLOPE FORMULA ---"
+"Shifted down from Y=110 to Y=140 to use dead space"
+Text(140,40,"y-y")
+"Offset Y by 4 pixels for subscript effect"
+Text(144,62,"1")
+Text(140,69,"= m(x-x")
+"Offset Y by 4 pixels for subscript effect"
+Text(144,122,"1")
+Text(140,130,")")
+
 Goto Y
 
 "--- RETURN TO PAGE 1 ---"
