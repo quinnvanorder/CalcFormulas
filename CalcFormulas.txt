@@ -1,5 +1,5 @@
 "Author: Quinn Van Order"
-"Version 2.5"
+"Version 2.6"
 "02.13.26"
 
 "--- SETUP SECTION ---"
@@ -9,65 +9,81 @@ GridOff
 BackgroundOff
 FnOff 
 PlotsOff 
+0→θ
 
-"--- MAIN MENU ---"
-Lbl S
+"--- MAIN MENU (Lbl 0) ---"
+Lbl 0
 ClrHome
 ClrDraw
-Menu("CALCULUS FORMULAS","DERIVATIVES",M,"INTEGRALS",W,"QUIT",Q)
+0→θ
+Menu("CALCULUS FORMULAS","DERIVATIVES",1,"INTEGRALS",4,"QUIT",9)
 
-"--- INTEGRATION PLACEHOLDER ---"
-Lbl W
+"--- DERIVATIVES PAGE 1 (Lbl 1) ---"
+Lbl 1
 ClrHome
 ClrDraw
+1→θ
+Menu("Derivatives 1","Constant Rule",A,"Constant Multiple",B,"Power Rule",C,"Sum/Difference",D,"Product Rule",E,"Quotient Rule",F,"Chain Rule",G,"NEXT",2,"MAIN",0)
+
+"--- DERIVATIVES PAGE 2 (Lbl 2) ---"
+Lbl 2
+ClrHome
+ClrDraw
+2→θ
+Menu("Derivatives 2","Exponential",H,"Logarithmic",I,"Trig",J,"Inverse Trig 1",K,"Inverse Trig 2",L,"Point Defs",M,"NEXT",3,"PREV",1,"MAIN",0)
+
+"--- DERIVATIVES PAGE 3 (Lbl 3) ---"
+Lbl 3
+ClrHome
+ClrDraw
+3→θ
+Menu("Derivatives 3","Implicit Partial",N," ",3," ",3," ",3," ",3," ",3," ",3,"PREV",2,"MAIN",0)
+
+"--- INTEGRATION PLACEHOLDER (Lbl 4) ---"
+Lbl 4
+ClrHome
+ClrDraw
+0→θ
 Text(50,50,"INTEGRATION")
 Text(70,40,"COMING SOON...")
 Text(130,40,"PRESS ANY KEY")
+Goto 8
 
-"--- WAIT LOOP WITH SAFE QUIT ---"
+"--- UNIVERSAL RETURN LOOP (Lbl 8) ---"
+Lbl 8
 0→K
 Repeat K
 getKey→K
 End
 If K=45
-Goto Q
-Goto S
+Goto 9
+If θ=1
+Goto 1
+If θ=2
+Goto 2
+If θ=3
+Goto 3
+If θ=4
+Goto 4
+Goto 0
 
-"--- DERIVATIVES PAGE 1 ---"
-Lbl M
-ClrHome
-ClrDraw
-Menu("Derivatives 1","Constant Rule",A,"Constant Multiple Rule",B,"Power Rule",C,"Sum/Difference Rule",D,"Product Rule",E,"Quotient Rule",F,"Chain Rule",H,"NEXT",N,"MAIN",S)
-
-"--- DERIVATIVES PAGE 2 ---"
-Lbl N
-ClrHome
-ClrDraw
-Menu("Derivatives 2","Exponential",J,"Logarithmic",K,"Trig",I,"Inverse Trig 1",L,"Inverse Trig 2",O,"Point",P,"NEXT",R,"PREV",M,"MAIN",S)
-
-"--- DERIVATIVES PAGE 3 (NEW) ---"
-Lbl R
-ClrHome
-ClrDraw
-Menu("Derivatives 3","Implicit Partial",T," ",R," ",R," ",R," ",R," ",R," ",R,"PREV",N,"MAIN",S)
-
-"--- RULE: CONSTANT ---"
+"--- RULE: CONSTANT (A) ---"
 Lbl A
 ClrDraw
 Text(10,10,"Constant Rule")
 Text(40,10,"f(x) = c")
 Text(70,10,"f'(x) = 0")
-Goto Z
+Goto 8
 
-"--- RULE: CONSTANT MULTIPLE ---"
+"--- RULE: CONSTANT MULTIPLE (B) ---"
 Lbl B
 ClrDraw
 Text(10,10,"Constant Multiple Rule")
 Text(40,10,"g(x) = c*f(x)")
 Text(70,10,"g'(x) = c*f'(x)")
-Goto Z
+Goto 8
 
-"--- RULE: POWER ---"
+"--- RULE: POWER (C) ---"
 Lbl C
 ClrDraw
 Text(10,10,"Power Rule")
@@ -75,26 +91,26 @@ Text(40,10,"f(x) = x")
 Text(32,60,"n")
 Text(70,10,"f'(x) = nx")
 Text(62,70,"n-1")
-Goto Z
+Goto 8
 
-"--- RULE: SUM AND DIFF ---"
+"--- RULE: SUM AND DIFF (D) ---"
 Lbl D
 ClrDraw
 Text(10,10,"Sum/Difference Rule")
 Text(40,10,"h(x) = f(x)+g(x)")
 Text(70,10,"h'(x) = f'(x)+g'(x)")
 Text(100,10,"NOTE: plus or minus")
-Goto Z
+Goto 8
 
-"--- RULE: PRODUCT ---"
+"--- RULE: PRODUCT (E) ---"
 Lbl E
 ClrDraw
 Text(10,10,"Product Rule")
 Text(40,10,"h(x) = f(x)g(x)")
 Text(70,10,"h'(x) = f'(x)g(x)+f(x)g'(x)")
-Goto Z
+Goto 8
 
-"--- RULE: QUOTIENT ---"
+"--- RULE: QUOTIENT (F) ---"
 Lbl F
 ClrDraw
 Text(10,10,"Quotient Rule")
@@ -106,18 +122,18 @@ Text(87,135,"2")
 For(X,63,200)
 Pxl-On(83,X)
 End
-Goto Z
+Goto 8
 
-"--- RULE: CHAIN ---"
-Lbl H
+"--- RULE: CHAIN (G) ---"
+Lbl G
 ClrDraw
 Text(10,10,"Chain Rule")
 Text(40,10,"h(x) = f(g(x))")
 Text(70,10,"h'(x) = f'(g(x))*g'(x)")
-Goto Z
+Goto 8
 
-"--- RULE: EXPONENTIAL ---"
-Lbl J
+"--- RULE: EXPONENTIAL (H) ---"
+Lbl H
 ClrDraw
 Text(10,10,"Exponential")
 Text(35,10,"f(x) = a")
@@ -138,10 +154,10 @@ Text(113,60,"g(x)")
 Text(120,100,"f'(x) = e")
 Text(113,150,"g(x)")
 Text(120,180,"g'(x)")
-Goto Y
+Goto 8
 
-"--- RULE: LOGARITHM ---"
-Lbl K
+"--- RULE: LOGARITHMIC (I) ---"
+Lbl I
 ClrDraw
 Text(5,10,"Logarithmic")
 Text(30,10,"f(x) = log")
@@ -176,10 +192,10 @@ For(X,185,225)
 Pxl-On(138,X)
 End
 Text(141,190,"g(x)")
-Goto Y
+Goto 8
 
-"--- RULE: TRIGONOMETRY ---"
-Lbl I
+"--- RULE: TRIGONOMETRY (J) ---"
+Lbl J
 ClrDraw
 Text(10,10,"Trig")
 Text(35,10,"sin(x) = cos(x)")
@@ -192,10 +208,10 @@ Text(115,10,"sec(x) = sec(x)tan(x)")
 Text(135,10,"cot(x) = -csc")
 Text(128,100,"2")
 Text(135,108,"(x)")
-Goto Y
+Goto 8
 
-"--- RULE: INVERSE TRIG 1 ---"
-Lbl L
+"--- RULE: INVERSE TRIG 1 (K) ---"
+Lbl K
 ClrDraw
 Text(5,10,"Inverse Trig 1")
 Text(35,10,"sin")
@@ -230,10 +246,10 @@ Pxl-On(128,X)
 End
 Text(132,150,"1+x")
 Text(128,175,"2")
-Goto Y
+Goto 8
 
-"--- RULE: INVERSE TRIG 2 ---"
-Lbl O
+"--- RULE: INVERSE TRIG 2 (L) ---"
+Lbl L
 ClrDraw
 Text(5,10,"Inverse Trig 2")
 Text(35,10,"cot")
@@ -268,10 +284,10 @@ End
 Text(132,150,"x√(x")
 Text(128,183,"2")
 Text(132,190,"-1)")
-Goto Y
+Goto 8
 
-"--- RULE: POINT DEFINITION ---"
-Lbl P
+"--- RULE: POINT DEFINITION (M) ---"
+Lbl M
 ClrDraw
 Text(10,10,"Point Definitions")
 Text(30,10,"f'(x) = lim")
@@ -293,10 +309,10 @@ Text(144,62,"1")
 Text(140,69,"= m(x-x")
 Text(144,122,"1")
 Text(140,130,")")
-Goto Y
+Goto 8
 
-"--- RULE: IMPLICIT PARTIAL ---"
-Lbl T
+"--- RULE: IMPLICIT PARTIAL (N) ---"
+Lbl N
 ClrDraw
 Text(10,10,"Implicit Partial")
 Text(50,30,"dy")
@@ -313,43 +329,10 @@ Text(88,108,"y")
 For(X,98,125)
 Pxl-On(70,X)
 End
-Goto X
+Goto 8
 
-"--- RETURN TO PAGE 1 (SAFE QUIT) ---"
-Lbl Z
-0→K
-Repeat K
-getKey→K
-End
-If K=45
-Goto Q
-ClrDraw
-Goto M
-
-"--- RETURN TO PAGE 2 (SAFE QUIT) ---"
-Lbl Y
-0→K
-Repeat K
-getKey→K
-End
-If K=45
-Goto Q
-ClrDraw
-Goto N
-
-"--- RETURN TO PAGE 3 (SAFE QUIT) ---"
-Lbl X
-0→K
-Repeat K
-getKey→K
-End
-If K=45
-Goto Q
-ClrDraw
-Goto R
-
-"--- QUIT ---"
-Lbl Q
+"--- QUIT (Lbl 9) ---"
+Lbl 9
 ClrDraw
 ClrHome
 RecallGDB 9
