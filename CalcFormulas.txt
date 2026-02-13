@@ -1,5 +1,5 @@
 "Author: Quinn Van Order"
-"Version 2.4"
+"Version 2.5"
 "02.13.26"
 
 "--- SETUP SECTION ---"
@@ -43,7 +43,13 @@ Menu("Derivatives 1","Constant Rule",A,"Constant Multiple Rule",B,"Power Rule",C
 Lbl N
 ClrHome
 ClrDraw
-Menu("Derivatives 2","Exponential",J,"Logarithmic",K,"Trig",I,"Inverse Trig 1",L,"Inverse Trig 2",O,"Point",P," ",N,"PREV",M,"MAIN",S)
+Menu("Derivatives 2","Exponential",J,"Logarithmic",K,"Trig",I,"Inverse Trig 1",L,"Inverse Trig 2",O,"Point",P,"NEXT",R,"PREV",M,"MAIN",S)
+
+"--- DERIVATIVES PAGE 3 (NEW) ---"
+Lbl R
+ClrHome
+ClrDraw
+Menu("Derivatives 3","Implicit Partial",T," ",R," ",R," ",R," ",R," ",R," ",R,"PREV",N,"MAIN",S)
 
 "--- RULE: CONSTANT ---"
 Lbl A
@@ -192,8 +198,6 @@ Goto Y
 Lbl L
 ClrDraw
 Text(5,10,"Inverse Trig 1")
-
-"--- ARCSIN ---"
 Text(35,10,"sin")
 Text(30,28,"-1")
 Text(35,44,"(x)")
@@ -205,8 +209,6 @@ End
 Text(42,150,"√(1-x")
 Text(38,190,"2")
 Text(42,197,")")
-
-"--- ARCCOS ---"
 Text(80,10,"cos")
 Text(75,32,"-1")
 Text(80,48,"(x)")
@@ -218,8 +220,6 @@ End
 Text(87,150,"√(1-x")
 Text(83,190,"2")
 Text(87,197,")")
-
-"--- ARCTAN ---"
 Text(125,10,"tan")
 Text(120,34,"-1")
 Text(125,50,"(x)")
@@ -236,8 +236,6 @@ Goto Y
 Lbl O
 ClrDraw
 Text(5,10,"Inverse Trig 2")
-
-"--- ARCCOT ---"
 Text(35,10,"cot")
 Text(30,34,"-1")
 Text(35,50,"(x)")
@@ -248,8 +246,6 @@ Pxl-On(38,X)
 End
 Text(42,150,"1+x")
 Text(38,175,"2")
-
-"--- ARCSEC ---"
 Text(80,10,"sec")
 Text(75,34,"-1")
 Text(80,50,"(x)")
@@ -261,8 +257,6 @@ End
 Text(87,150,"x√(x")
 Text(83,183,"2")
 Text(87,190,"-1)")
-
-"--- ARCCSC ---"
 Text(125,10,"csc")
 Text(120,34,"-1")
 Text(125,50,"(x)")
@@ -280,32 +274,46 @@ Goto Y
 Lbl P
 ClrDraw
 Text(10,10,"Point Definitions")
-
-"--- DERIVATIVE DEF ---"
 Text(30,10,"f'(x) = lim")
-Text(45,56,"h->0") 
-Text(30,110,"f(x+h)-f(x)") 
+Text(45,56,"h->0")
+Text(30,110,"f(x+h)-f(x)")
 For(X,110,190)
 Pxl-On(46,X)
 End
-Text(46,130,"h") 
-
-"--- SLOPE AT POINT ---"
+Text(46,130,"h")
 Text(85,31,"m = lim")
-Text(101,56,"x->a") 
-Text(85,110,"f(x)-f(a)") 
+Text(101,56,"x->a")
+Text(85,110,"f(x)-f(a)")
 For(X,110,180)
 Pxl-On(101,X)
 End
-Text(101,130,"x-a") 
-
-"--- POINT SLOPE FORMULA ---"
+Text(101,130,"x-a")
 Text(140,40,"y-y")
 Text(144,62,"1")
 Text(140,69,"= m(x-x")
 Text(144,122,"1")
 Text(140,130,")")
 Goto Y
+
+"--- RULE: IMPLICIT PARTIAL ---"
+Lbl T
+ClrDraw
+Text(10,10,"Implicit Partial")
+Text(50,30,"dy")
+Text(75,30,"dx")
+For(X,28,52)
+Pxl-On(70,X)
+End
+Text(62,60,"=")
+Text(62,80,"-")
+Text(45,100,"f")
+Text(53,108,"x")
+Text(80,100,"f")
+Text(88,108,"y")
+For(X,98,125)
+Pxl-On(70,X)
+End
+Goto X
 
 "--- RETURN TO PAGE 1 (SAFE QUIT) ---"
 Lbl Z
@@ -328,6 +336,17 @@ If K=45
 Goto Q
 ClrDraw
 Goto N
+
+"--- RETURN TO PAGE 3 (SAFE QUIT) ---"
+Lbl X
+0→K
+Repeat K
+getKey→K
+End
+If K=45
+Goto Q
+ClrDraw
+Goto R
 
 "--- QUIT ---"
 Lbl Q
