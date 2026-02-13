@@ -1,9 +1,8 @@
 "Author: Quinn Van Order"
-"Version 2.3"
-"02.11.26"
+"Version 2.4"
+"02.13.26"
 
 "--- SETUP SECTION ---"
-"Store current graph database to restore later"
 StoreGDB 9
 AxesOff
 GridOff
@@ -24,7 +23,14 @@ ClrDraw
 Text(50,50,"INTEGRATION")
 Text(70,40,"COMING SOON...")
 Text(130,40,"PRESS ANY KEY")
-Pause 
+
+"--- WAIT LOOP WITH SAFE QUIT ---"
+0→K
+Repeat K
+getKey→K
+End
+If K=45
+Goto Q
 Goto S
 
 "--- DERIVATIVES PAGE 1 ---"
@@ -91,7 +97,6 @@ Text(80,10,"h'(x) =")
 Text(65,65,"f'(x)g(x)-f(x)g'(x)")
 Text(95,95,"(g(x))")
 Text(87,135,"2")
-"Draw division bar"
 For(X,63,200)
 Pxl-On(83,X)
 End
@@ -138,7 +143,6 @@ Text(35,73,"a")
 Text(30,83,"(x)")
 Text(30,135,"f'(x) =")
 Text(20,200,"1")
-"Draw division bar"
 For(X,185,225)
 Pxl-On(33,X)
 End
@@ -146,7 +150,6 @@ Text(36,185,"ln(a)x")
 Text(65,10,"f(x) = ln(x)")
 Text(65,135,"f'(x) =")
 Text(55,190,"1")
-"Draw division bar"
 For(X,185,205)
 Pxl-On(68,X)
 End
@@ -156,7 +159,6 @@ Text(105,73,"a")
 Text(100,83,"(g(x))")
 Text(100,135,"f'(x) =")
 Text(90,195,"g'(x)")
-"Draw division bar"
 For(X,180,240)
 Pxl-On(103,X)
 End
@@ -164,7 +166,6 @@ Text(106,180,"ln(a)g(x)")
 Text(135,10,"f(x) = ln(g(x))")
 Text(135,135,"f'(x) =")
 Text(125,190,"g'(x)")
-"Draw division bar"
 For(X,185,225)
 Pxl-On(138,X)
 End
@@ -198,7 +199,6 @@ Text(30,28,"-1")
 Text(35,44,"(x)")
 Text(35,115,"=")
 Text(25,165,"1")
-"Draw division bar"
 For(X,150,205)
 Pxl-On(38,X)
 End
@@ -212,7 +212,6 @@ Text(75,32,"-1")
 Text(80,48,"(x)")
 Text(80,115,"=")
 Text(70,160,"-1")
-"Draw division bar"
 For(X,150,205)
 Pxl-On(83,X)
 End
@@ -226,7 +225,6 @@ Text(120,34,"-1")
 Text(125,50,"(x)")
 Text(125,115,"=")
 Text(115,165,"1")
-"Draw division bar"
 For(X,150,180)
 Pxl-On(128,X)
 End
@@ -245,7 +243,6 @@ Text(30,34,"-1")
 Text(35,50,"(x)")
 Text(35,115,"=")
 Text(25,160,"-1")
-"Draw division bar"
 For(X,150,180)
 Pxl-On(38,X)
 End
@@ -258,7 +255,6 @@ Text(75,34,"-1")
 Text(80,50,"(x)")
 Text(80,115,"=")
 Text(70,170,"1")
-"Draw division bar"
 For(X,150,220)
 Pxl-On(83,X)
 End
@@ -272,7 +268,6 @@ Text(120,34,"-1")
 Text(125,50,"(x)")
 Text(125,115,"=")
 Text(115,165,"-1")
-"Draw division bar"
 For(X,150,220)
 Pxl-On(128,X)
 End
@@ -287,52 +282,50 @@ ClrDraw
 Text(10,10,"Point Definitions")
 
 "--- DERIVATIVE DEF ---"
-"Kept fixed at original Y=30 position"
 Text(30,10,"f'(x) = lim")
 Text(45,56,"h->0") 
 Text(30,110,"f(x+h)-f(x)") 
-
-"Draw division bar at Y=46"
 For(X,110,190)
 Pxl-On(46,X)
 End
 Text(46,130,"h") 
 
 "--- SLOPE AT POINT ---"
-"Shifted down from Y=70 to Y=85 to use dead space"
 Text(85,31,"m = lim")
 Text(101,56,"x->a") 
 Text(85,110,"f(x)-f(a)") 
-
-"Draw division bar moved to Y=101"
 For(X,110,180)
 Pxl-On(101,X)
 End
 Text(101,130,"x-a") 
 
 "--- POINT SLOPE FORMULA ---"
-"Shifted down from Y=110 to Y=140 to use dead space"
 Text(140,40,"y-y")
-"Offset Y by 4 pixels for subscript effect"
 Text(144,62,"1")
 Text(140,69,"= m(x-x")
-"Offset Y by 4 pixels for subscript effect"
 Text(144,122,"1")
 Text(140,130,")")
-
 Goto Y
 
-"--- RETURN TO PAGE 1 ---"
+"--- RETURN TO PAGE 1 (SAFE QUIT) ---"
 Lbl Z
-While getKey=0
+0→K
+Repeat K
+getKey→K
 End
+If K=45
+Goto Q
 ClrDraw
 Goto M
 
-"--- RETURN TO PAGE 2 ---"
+"--- RETURN TO PAGE 2 (SAFE QUIT) ---"
 Lbl Y
-While getKey=0
+0→K
+Repeat K
+getKey→K
 End
+If K=45
+Goto Q
 ClrDraw
 Goto N
 
@@ -340,6 +333,5 @@ Goto N
 Lbl Q
 ClrDraw
 ClrHome
-"Restore the graph database"
 RecallGDB 9
 Stop
