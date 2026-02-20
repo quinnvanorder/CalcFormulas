@@ -37,7 +37,7 @@ Lbl 3
 ClrHome
 ClrDraw
 3→θ
-Menu("Derivatives 3","Implicit Partial",N," ",3," ",3," ",3," ",3," ",3," ",3,"PREV",2,"MAIN",0)
+Menu("Derivatives 3","Implicit Partial",N,"Inverse Func",O," ",3," ",3," ",3," ",3," ",3,"PREV",2,"MAIN",0)
 
 "--- INTEGRATION PLACEHOLDER (Lbl 4) ---"
 Lbl 4
@@ -329,6 +329,23 @@ Text(88,108,"y")
 For(X,98,125)
 Pxl-On(70,X)
 End
+Goto 8
+
+"--- RULE: INVERSE FUNCTION (O) ---"
+Lbl O
+ClrDraw
+Text(10,10,"Inverse Function")
+Text(40,10,"h(x) = f")
+Text(35,58,"-1")
+Text(40,74,"(x)")
+Text(75,10,"h'(x) =")
+Text(60,95,"1")
+For(X,75,135)
+Pxl-On(72,X)
+End
+Text(75,75,"f'(h(x))")
+Text(105,10,"h(f(x))=x & f(h(x))=x")
+Text(135,10,"Uses Chain Rule")
 Goto 8
 
 "--- QUIT (Lbl 9) ---"
